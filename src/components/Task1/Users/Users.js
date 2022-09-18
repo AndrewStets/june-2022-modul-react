@@ -21,7 +21,7 @@ const Users = () => {
 
         return (
             <div>
-                {user && <div className='inform'><h2>{user.name}<br/>{user.username}<br/>{user.email}</h2></div>}
+                {user && <div className='inform'><h3>Name-{user.name}<br/>Username-{user.username}<br/>Email-{user.email}</h3></div>}
                 {users.map(user => (<User item={user} key={user.id} lift={lift}/>))}
             </div>
         );
