@@ -6,7 +6,8 @@ function App() {
   return (
     <div className="Appp">
       <Users/>
-    {/*<Launches/>*/}
+      <h2>SpaceX</h2>
+    <Launches/>
     </div>
   );
 }

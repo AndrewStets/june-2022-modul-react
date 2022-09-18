@@ -14,12 +14,10 @@ const Launches = () => {
             });
     }, []);
 
-
     return (
         <div>
             {launches.map(launch =>(<Launch item={launch} key={launch.flight_number}/>))}
         </div>
     );
 };
-
 export default Launches;
