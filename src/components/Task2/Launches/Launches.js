@@ -15,7 +15,7 @@ const Launches = () => {
     }, []);
 
     return (
-        <div>
+        <div className='launches'>
             {launches.map(launch =>(<Launch item={launch} key={launch.flight_number}/>))}
         </div>
     );

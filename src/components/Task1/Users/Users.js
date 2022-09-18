@@ -20,7 +20,7 @@ const Users = () => {
         }, []);
 
         return (
-            <div>
+            <div className='users'>
                 {user && <div className='inform'><h3>Name-{user.name}<br/>Username-{user.username}<br/>Email-{user.email}</h3></div>}
                 {users.map(user => (<User item={user} key={user.id} lift={lift}/>))}
             </div>
