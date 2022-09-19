@@ -1,7 +1,8 @@
 import React, {useEffect, useState} from 'react';
-import {userService} from "../../services/user.service";
 import User from "../User/User";
 import {getUsersAxios} from "../../services/axios.service";
+import {getPosts} from "../Posts/Posts";
+
 
 const Users = () => {
 
@@ -13,7 +14,7 @@ const Users = () => {
 
     return (
         <div>
-            {users.map(user => (<User key={user.id} item={user}/>))}
+            {users.map(user => (<User key={user.id} item={user} getPosts={getPosts()}/>))}
         </div>
     );
 };

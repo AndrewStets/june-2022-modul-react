@@ -16,4 +16,4 @@ const getPostsAxios = (id) => {
 };
 
 export {axiosService};
-export {getUsersAxios,getUserAxios}
+export {getUsersAxios,getUserAxios,getPostsAxios}
