@@ -1,11 +1,20 @@
 import {getPostsAxios} from "../../services/axios.service";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
-const [posts,setPosts] = useState(null);
+    const Posts = (id) => {
 
+        const [posts,setPosts] = useState(null);
 
-const getPosts = (id) => {
-    getPostsAxios(id).then(value => setPosts(value.data))
+useEffect(() => {
+        getPostsAxios(id).then(value => setPosts(value))
+    },[]);
+
+    return (<div>
+                    {
+
+                    }
+            </div>
+        );
 };
 
-export {getPosts};
+export {Posts};

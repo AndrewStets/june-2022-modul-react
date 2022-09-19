@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import User from "../User/User";
 import {getUsersAxios} from "../../services/axios.service";
-import {getPosts} from "../Posts/Posts";
+import {getPosts, Posts} from "../Posts/Posts";
 
 
 const Users = () => {
@@ -14,7 +14,12 @@ const Users = () => {
 
     return (
         <div>
-            {users.map(user => (<User key={user.id} item={user} getPosts={getPosts()}/>))}
+            {
+                users.map(user => (<User key={user.id} item={user} getPosts={getPosts()}/>))
+            },
+            {
+
+            }
         </div>
     );
 };
