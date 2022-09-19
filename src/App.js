@@ -6,9 +6,9 @@ import './components/Task2/main.css';
 
 function App() {
   return (
-    <div className="Appp">
+    <div className="App">
       <Users/>
-      <h2>SpaceX</h2>
+        <div className='text'><h2>SpaceX</h2></div>
     <Launches/>
     </div>
   );

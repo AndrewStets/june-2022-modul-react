@@ -20,9 +20,9 @@ const Users = () => {
         }, []);
 
         return (
-            <div className='users'>
+            <div>
                 {user && <div className='inform'><h3>Name-{user.name}<br/>Username-{user.username}<br/>Email-{user.email}</h3></div>}
-                {users.map(user => (<User item={user} key={user.id} lift={lift}/>))}
+                <div className='users'>{users.map(user => (<User item={user} key={user.id} lift={lift}/>))}</div>
             </div>
         );
     };

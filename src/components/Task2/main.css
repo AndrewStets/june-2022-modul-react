@@ -11,3 +11,12 @@
     margin: 5px;
 
 }
+.text {
+text-align: center;
+}
+
+.launches{
+    display: flex;
+    width: 1700px;
+
+}

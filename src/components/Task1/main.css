@@ -13,7 +13,16 @@
 }
 .button{
     width: 120px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    margin-left: 40px;
 }
 .users{
+    margin: 0 auto;
+    display: flex;
+    width: 1550px;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
 
 }
