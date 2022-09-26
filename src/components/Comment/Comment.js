@@ -13,7 +13,7 @@ const Comment = ({comment}) => {
             <div>name: {name} </div>
             <div>email: {email} </div>
             <div>
-                <Link to={'/posts/'+postId}>PostDetails</Link>
+                <Link to={`posts/${postId}`}>PostDetails</Link>
             </div>
             <hr/>
         </div>

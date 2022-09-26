@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+
 import Comment from "../Comment/Comment";
 
 const Comments = () => {
@@ -10,7 +11,7 @@ const Comments = () => {
             .then(value => {
                 setComments(value)
             });
-    });
+    },[]);
     return (
         <div>
             {
