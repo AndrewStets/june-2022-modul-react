@@ -3,8 +3,9 @@ import {NavLink, Route, Routes} from "react-router-dom";
 
 import HomePage from "./components/HomePage/HomePage";
 import Todos from "./components/Todos/Todos";
-import Albums from "./components/Albums/Albums";
 import Comments from "./components/Comments/Comments";
+import Albums from "./components/Albums/Albums";
+import PostDetails from "./components/PostDetails/PostDetails";
 
 function App() {
 
@@ -22,9 +23,8 @@ function App() {
           <Route index element={<HomePage/>}/>
           <Route path={'todos'} element={<Todos/>}/>
           <Route path={'albums'} element={<Albums/>}/>
-          <Route path={'comments'} element={<Comments/>}>
-            {/*<Route path={''} element={}/>*/}
-            </Route>
+          <Route path={'comments'} element={<Comments/>}/>
+              <Route path={'posts/:id'} element={<PostDetails/>}/>
         </Routes>
 
 

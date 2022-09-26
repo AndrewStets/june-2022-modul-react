@@ -1,9 +1,12 @@
-import React from 'react';
 
-const Album = () => {
+const Album = ({album}) => {
+    const {id, title} = album;
+
     return (
         <div>
-            Album
+            <h3>id : {id}</h3>
+            <h3>title : {title}</h3>
+            <hr/>
         </div>
     );
 };
