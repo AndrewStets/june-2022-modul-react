@@ -2,16 +2,17 @@ import React, {useEffect, useState} from 'react';
 import {useParams} from "react-router-dom";
 
 const PostDetails = () => {
-    const {id} = useParams();
+    const {postId} = useParams();
 
-    const [post, setPost] = useState(null);
+    const [post, setPost] = useState({});
+
     useEffect(() => {
-        fetch(`https://jsonplaceholder.typicode.com/posts/`+id)
+        fetch(`https://jsonplaceholder.typicode.com/posts/`+postId)
                         .then(value => value.json())
                         .then(value => {
                             setPost({...value});
                         });
-    },[id]);
+    },[postId]);
     return (
         <div>
 
