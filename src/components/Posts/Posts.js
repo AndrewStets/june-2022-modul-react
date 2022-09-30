@@ -7,6 +7,7 @@ import {useEffect, useState} from "react";
 
 useEffect(() => {
         getPostsAxios(id).then(value => setPosts(value))
+
     },[]);
 
     return (<div>

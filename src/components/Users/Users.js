@@ -8,6 +8,10 @@ const Users = () => {
 
     const [users,setUsers] = useState([]);
 
+    const lift = () => {
+
+    };
+
     useEffect(() => {
         getUsersAxios().then(value => setUsers(value.data))
     },[]);
@@ -15,10 +19,7 @@ const Users = () => {
     return (
         <div>
             {
-                users.map(user => (<User key={user.id} item={user} getPosts={getPosts()}/>))
-            },
-            {
-
+                users.map(user => (<User key={user.id} item={user} getPosts={getPosts()} lift={lift()}/>))
             }
         </div>
     );
