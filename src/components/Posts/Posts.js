@@ -1,12 +1,12 @@
 import {getPostsAxios} from "../../services/axios.service";
 import {useEffect, useState} from "react";
 
-    const Posts = (id) => {
+    const Posts = () => {
 
-        const [posts,setPosts] = useState(null);
+        const [post,setPost] = useState(null);
 
 useEffect(() => {
-        getPostsAxios(id).then(value => setPosts(value))
+        getPostsAxios(id).then(value => setPost(value))
 
     },[]);
 

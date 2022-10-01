@@ -1,6 +1,6 @@
 import React from 'react';
 
-const User = (props) => {
+const User = (props, lift) => {
     const {user} = props;
 
     return (
