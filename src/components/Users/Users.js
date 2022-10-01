@@ -1,35 +1,23 @@
 import React, {useEffect, useState} from 'react';
+
+import {userService} from "../../services";
 import User from "../User/User";
-import {getUsersAxios} from "../../services/axios.service";
-import {getPosts, Posts} from "../Posts/Posts";
 
-
-const Users = () => {
+const Users = ({getPosts}) => {
 
     const [users,setUsers] = useState([]);
 
-    const lift = () => {
-
-    };
-
     useEffect(() => {
-        getUsersAxios().then(value => setUsers(value.data))
+        userService.getAll().then(value => setUsers(value.data))
     },[]);
 
     return (
         <div>
             {
-                users.map(user => (<User key={user.id} item={user} getPosts={getPosts()} lift={lift()}/>))
+                users.map(user => (<User key={user.id} user={user} getPosts={getPosts}/>))
             }
         </div>
     );
 };
 
 export default Users;
-
-
-
-        // userService.getAll().then(({data}) => {
-        //     const filter = data.filter(user => user.id < 5);
-        //  setUsers(filter);
-        // });
