@@ -1,8 +1,13 @@
-function User() {
+function User({user}) {
+
+  const {id,name,username,email} = user;
 
   return (
     <div>
-    User
+      <div>id : {id}</div>
+      <div>name : {name}</div>
+      <div>username : {username}</div>
+      <div>email : {email}</div>
     </div>
   );
 }

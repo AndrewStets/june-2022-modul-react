@@ -15,17 +15,21 @@ const userSlice = createSlice({
 
         getAll: (state, action) => {
             state.users = action.payload
-        },
-
-        getAllWithDispatch: (state, action) => {
-            state.users = action.payload;
         }
-    },
 
-});
+            // getAllWithDispatch: (state, action) => {
+            //     state.users = action.payload;
+            // }
+        }
+    });
 
-const {reducer: userReducer, action: {getAllWithDispatch, getAll}} = userSlice;
+const {reducer: userReducer, action:{getAll}} = userSlice;
+
+const userActions = {
+    getAllWithDispatch
+};
 
 export {
-    userReducer
+    userReducer,
+    userActions
 };
