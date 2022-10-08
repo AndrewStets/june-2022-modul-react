@@ -5,9 +5,14 @@ function App() {
   return (
     <div>
       <Header/>
+        <hr/>
+        <hr/>
+        <hr/>
       <div>
           <Users/>
-        <Posts/>
+          <hr/>
+          <hr/>
+        {/*<Posts/>*/}
       </div>
     </div>
   );

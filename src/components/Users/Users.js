@@ -1,18 +1,18 @@
 import {useDispatch, useSelector} from "react-redux";
-import {useEffect} from "react";
 
-import {User} from "../User/User";
+import {useEffect} from "react";
+import {userService} from "../../services";
 import {userActions} from "../../redux";
+import {User} from "../User/User";
 
 function Users() {
 
   const dispatch = useDispatch();
 
-  const {users} = useSelector(state => state.useReducer);
+  const {users} = useSelector(state => state.userReducer);
 
   useEffect(() => {
-    // userService.getAll().then(({data})=>dispatch(userActions.getAllWithDispatch(data)))
-    dispatch(userActions.getAll());
+    userService.getAll().then(({data}) => dispatch(userActions.getAll(data)))
   }, []);
 
   return (
@@ -23,4 +23,5 @@ function Users() {
       </div>
   );
 }
+
 export {Users};
