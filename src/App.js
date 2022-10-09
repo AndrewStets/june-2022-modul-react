@@ -1,19 +1,11 @@
 import './App.css';
-import {Header, Posts, Users} from "./components";
+
+import {MainLayout} from "./layout";
 
 function App() {
   return (
     <div>
-      <Header/>
-        <hr/>
-        <hr/>
-        <hr/>
-      <div>
-          <Users/>
-          <hr/>
-          <hr/>
-        {/*<Posts/>*/}
-      </div>
+        <MainLayout/>
     </div>
   );
 }

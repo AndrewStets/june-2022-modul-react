@@ -1,6 +1,11 @@
+import {useDispatch} from "react-redux";
+import {postActions} from "../../redux";
+
 function Post({post}) {
 
   const {userId, id, title, body} = post;
+
+  const dispatch = useDispatch();
 
   return (
     <div>
@@ -11,8 +16,8 @@ function Post({post}) {
         <div>body : {body}</div>
       </div>
       <div>
-        <button>Set Post</button>
-        <button>Current Post</button>
+        <button onClick={()=>dispatch(postActions.setCurrentPost(post))}>Set Post</button>
+        <button onClick={()=>dispatch(postActions.getById({id}))}>Current Post</button>
       </div>
         <hr/>
     </div>

@@ -1,6 +1,11 @@
+import {useDispatch} from "react-redux";
+import {userActions} from "../../redux";
+
 function User({user}) {
 
   const {id, name, username, email} = user;
+
+  const dispatch = useDispatch();
 
   return (
     <div>
@@ -11,8 +16,9 @@ function User({user}) {
         <div>email : {email}</div>
       </div>
       <div>
-        <button>Current User</button>
-        <button>Set User</button>
+        <button onClick={()=>dispatch(userActions.setCurrentUser(user))}>Current User</button>
+        <button onClick={()=>dispatch(userActions.getById({id}))}>GetUserFromAPI</button>
+        <button onClick={()=>dispatch(userActions.deleteById({id}))}>DeleteUser</button>
       </div>
         <hr/>
     </div>
