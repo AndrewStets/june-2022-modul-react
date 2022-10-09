@@ -9,7 +9,7 @@ function Users() {
 
   const dispatch = useDispatch();
 
-  const {users, loading, error, userFromAPI} = useSelector(state => state.userReducer);
+  const {users, error, loading,userFromAPI} = useSelector(state => state.userReducer);
 
   useEffect(() => {
     // userService.getAll().then(({data}) => dispatch(userActions.getAll(data)))
@@ -19,13 +19,13 @@ function Users() {
   return (
       <div>
         {
-          loading&& <h2>Loading...............</h2>
+          error && <h2>Error</h2>
         }
         {
-          error&& <h2>Error</h2>
+          loading && <h2>Loading...............</h2>
         }
         {
-            userFromAPI&&userFromAPI.email
+            userFromAPI && userFromAPI.email
         }
         <hr/>
         {

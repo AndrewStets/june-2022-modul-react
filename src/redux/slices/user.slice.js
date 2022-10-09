@@ -1,13 +1,14 @@
 import {createAsyncThunk, createSlice, current} from "@reduxjs/toolkit";
+
 import {userService} from "../../services";
 
-const initialState={
+const initialState = {
     users: [],
     currentUser: null,
     loading: false,
     error: null,
-    userFromAPI:null
-}
+    userFromAPI: null
+};
 
 const getAll = createAsyncThunk(
     'userSlice/getAll',
@@ -28,7 +29,7 @@ const getById = createAsyncThunk(
             const {data} = await userService.getById(id);
             return data
         }catch (e) {
-            return rejectedWithValue(e.response.data())
+            return rejectedWithValue(e.response.data)
         }
     }
 );
@@ -40,27 +41,33 @@ const userSlice = createSlice({
         // getAll: (state, action) => {
         //     state.users = action.payload
         // },
+
         setCurrentUser: (state, action) => {
             state.currentUser=action.payload
         },
+
         deleteById: (state, action) => {
             const index = state.users.findIndex(user => user.id === action.payload)
-            console.log(state.users.splice({index}, 1));
+            state.users.splice(index, 1);
         }
     },
+
     extraReducers: builder =>
         builder
             .addCase(getAll.fulfilled, (state, action) => {
                 state.users = action.payload
                 state.loading = false
             })
+
             .addCase(getAll.rejected, (state, action) => {
                 state.error = action.payload
                 state.loading = false
             })
+
             .addCase(getAll.pending, (state, action) => {
                 state.loading = true
             })
+
             .addCase(getById.fulfilled, (state, action) => {
                 state.userFromAPI=action.payload
             }),

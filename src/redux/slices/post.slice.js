@@ -1,13 +1,14 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
+
 import {postService} from "../../services";
 
-const initialState = ({
+const initialState = {
     posts: [],
     currentPost: null,
     loading: false,
     error: null,
     postFromAPI: null
-});
+};
 
 const getAll = createAsyncThunk(
     'postSlice/getAll',
@@ -42,24 +43,42 @@ const postSlice = createSlice({
         // },
         setCurrentPost: (state, action) => {
             state.currentPost=action.payload
-        }
+        },
+        deleteById: (state, action) => {
+            const index = state.posts.findIndex(post => post.id === action.payload);
+            state.posts.splice(index, 1)
+        },
+
     },
+
     extraReducers: builder =>
         builder
             .addCase(getAll.fulfilled, (state, action) => {
                 state.posts = action.payload
+                state.loading=false
             })
+
+            .addCase(getAll.rejected, (state, action) => {
+                state.error = action.payload
+                state.loading=false
+            })
+
+            .addCase(getAll.pending, (state, action) => {
+                state.loading = true;
+            })
+
             .addCase(getById.fulfilled, (state, action) => {
-                state.postFromAPI=action.payload
+                state.postFromAPI = action.payload
             }),
     });
 
-const {reducer:postReducer,actions:{setCurrentPost}} = postSlice;
+const {reducer:postReducer,actions:{setCurrentPost,deleteById}} = postSlice;
 
 const postActions = {
     getAll,
     setCurrentPost,
-    getById
+    getById,
+    deleteById
 };
 
 export {

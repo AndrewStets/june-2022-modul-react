@@ -1,6 +1,7 @@
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
-import {axiosService, postService} from "../../services";
+
+import {postService} from "../../services";
 import {postActions} from "../../redux";
 import {Post} from "../Post/Post";
 
@@ -8,7 +9,7 @@ function Posts() {
 
   const dispatch = useDispatch();
 
-  const {posts, postFromAPI} = useSelector(state => state.postReducer);
+  const {posts, error, loading, postFromAPI} = useSelector(state => state.postReducer);
 
   useEffect(() => {
     // postService.getAll().then(({data})=>dispatch(postActions.getAll(data)))
@@ -18,10 +19,17 @@ function Posts() {
   return (
       <div>
         {
-          postFromAPI&& postFromAPI.title
+          error && <h2>Error</h2>
         }
         {
-          posts.map(post => <Post key={post.id} post={post}/>)
+          loading && <h2>Loading...............</h2>
+        }
+        {
+          postFromAPI && postFromAPI.title
+        }
+        {
+          posts.map(post =>
+              <Post key={post.id} post={post}/>)
         }
       </div>
   );

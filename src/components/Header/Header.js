@@ -11,10 +11,10 @@ function Header() {
   return (
     <div className={css.Header}>
       {
-        currentPost&& currentPost.title
+        currentPost && currentPost.title
       }
       {
-        currentUser&& currentUser.name
+        currentUser && currentUser.name
       }
     </div>
   );

@@ -1,4 +1,5 @@
 import {useDispatch} from "react-redux";
+
 import {postActions} from "../../redux";
 
 function Post({post}) {
@@ -15,11 +16,15 @@ function Post({post}) {
         <div>title : {title}</div>
         <div>body : {body}</div>
       </div>
+
       <div>
         <button onClick={()=>dispatch(postActions.setCurrentPost(post))}>Set Post</button>
         <button onClick={()=>dispatch(postActions.getById({id}))}>Current Post</button>
+          <button onClick={()=>dispatch(postActions.deleteById(id))}>Delete Post</button>
       </div>
+
         <hr/>
+
     </div>
   );
 }

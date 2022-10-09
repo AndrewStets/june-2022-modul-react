@@ -4,16 +4,21 @@ function MainLayout() {
 
   return (
       <div>
-          <Header/>
-          <hr/>
-          <hr/>
-          <hr/>
+
           <div>
-              {/*<Users/>*/}
+              <Header/>
+              <hr/>
+              <hr/>
+              <hr/>
+          </div>
+
+          <div>
+              <Users/>
               <hr/>
               <hr/>
               <Posts/>
           </div>
+
       </div>
         );
 }
